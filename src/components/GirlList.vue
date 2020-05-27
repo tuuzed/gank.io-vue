@@ -7,13 +7,20 @@
       :error.sync="error"
       @load="onLoad"
     >
-      <div v-for="(item,index) in list" :key="index" style="padding:20px">
-        <h5>{{ item.title }}</h5>
-        <van-image :src="item.images[0]" radius="8" fit="cover" height="200" />
-        <span>{{ item.desc }}</span>
+      <div class="card" v-for="(item,index) in list" :key="index" style="padding:20px">
+        <span class="title">{{ item.title }}</span>
+        <van-image
+          :src="item.images[0]"
+          radius="8"
+          fit="cover"
+          height="200"
+          @click="onClickItemImage(index)"
+        />
+        <span class="desc">{{ item.desc }}</span>
       </div>
     </van-list>
-    <router-view />
+
+    <van-image-preview v-model="show" :images="images" :start-position="index"></van-image-preview>
   </div>
 </template>
 
@@ -29,10 +36,21 @@ export default {
       error: false,
       page: 1,
       count: 10,
-      list: []
+      list: [],
+      show: false,
+      index: 0
     };
   },
+  computed: {
+    images() {
+      return this.list.map(it => it.images[0]);
+    }
+  },
   methods: {
+    onClickItemImage(index) {
+      this.index = index;
+      this.show = true;
+    },
     onLoad() {
       fetchList("Girl", "Girl", this.page, this.count)
         .then(res => {
@@ -47,5 +65,31 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.card {
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 4px;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+.title {
+  font-size: 14px;
+  display: -webkit-box;
+  font-weight: bold;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  padding-bottom: 16px;
+  padding-left: 8px;
+}
+.desc {
+  font-size: 12px;
+  color: #bfbfbf;
+  display: block;
+  letter-spacing: 2px;
+  padding: 30px 20px;
+}
 </style>
