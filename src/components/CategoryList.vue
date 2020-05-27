@@ -17,7 +17,7 @@
           <van-col span="7">
             <van-image
               class="image"
-              :src="item.images[0]"
+              :src="item.images[0]+'/crop/1/w/300'"
               radius="16"
               fit="cover"
               height="80"

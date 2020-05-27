@@ -1,12 +1,14 @@
 <template>
-  <div class="article">
-    <van-nav-bar title="Gank.io | 专题" />
-    <van-tabs v-model="tabIndex" sticky>
-      <van-tab v-for="(tab,index) in tabs" :key="index" :title="tab.title">
-        <CategoryList category="Article" :type="tab.type" />
-      </van-tab>
-    </van-tabs>
-  </div>
+  <transition name="fade">
+    <div class="article">
+      <van-nav-bar title="Gank.io | 专题" />
+      <van-tabs v-model="tabIndex" sticky>
+        <van-tab v-for="(tab,index) in tabs" :key="index" :title="tab.title">
+          <CategoryList category="Article" :type="tab.type" />
+        </van-tab>
+      </van-tabs>
+    </div>
+  </transition>
 </template>
 
 <script>

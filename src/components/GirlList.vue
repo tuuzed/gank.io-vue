@@ -75,6 +75,9 @@ export default {
   margin-right: 10px;
   margin-top: 10px;
 }
+.card img {
+  width: 100%;
+}
 .title {
   font-size: 14px;
   display: -webkit-box;

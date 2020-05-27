@@ -1,8 +1,10 @@
 <template>
-  <div class="girl">
-    <Banner />
-    <GirlList />
-  </div>
+  <transition name="fade">
+    <div class="girl">
+      <Banner />
+      <GirlList />
+    </div>
+  </transition>
 </template>
 
 <script>
