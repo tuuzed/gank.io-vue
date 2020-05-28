@@ -7,7 +7,7 @@
       :error.sync="error"
       @load="onLoad"
     >
-      <div class="item" v-for="(item,index) in list" :key="index" @click="itemClick(item)">
+      <div class="item" v-for="(item,index) in list" :key="index" @click="onItemClick(item)">
         <van-row>
           <van-col span="16">
             <span class="title">{{ item.title }}</span>
@@ -17,13 +17,14 @@
           <van-col span="7">
             <van-image
               class="image"
-              :src="item.images[0]+'/crop/1/w/300'"
+              :src="item.images[0]+'/crop/1/w/100'"
               radius="16"
               fit="cover"
               height="80"
               width="100%"
             />
           </van-col>
+          <van-col class="publishedAt" span="24">{{ item.publishedAt }}</van-col>
         </van-row>
         <div class="divider"></div>
       </div>
@@ -51,7 +52,7 @@ export default {
     };
   },
   methods: {
-    itemClick(item) {
+    onItemClick(item) {
       window.open(`https://gank.io/post/${item._id}`, "_blank");
     },
     onLoad() {
@@ -95,6 +96,16 @@ export default {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   color: grey;
+}
+.publishedAt {
+  text-align: start;
+  margin-top: 2px;
+  font-size: 12px;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  color: #a0a0a0;
 }
 .image {
   padding: 4px;
