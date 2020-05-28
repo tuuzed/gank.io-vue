@@ -7,20 +7,22 @@
       :error.sync="error"
       @load="onLoad"
     >
-      <div class="card" v-for="(item,index) in list" :key="index" style="padding:20px">
-        <span class="title">{{ item.title }}</span>
-        <van-image
-          :src="item.images[0]"
-          radius="8"
-          fit="cover"
-          height="200"
-          @click="onClickItemImage(index)"
-        />
-        <span class="desc">{{ item.desc }}</span>
-      </div>
+      <van-row class="card-wrapper">
+        <van-col span="24" class="card" v-for="(item,index) in list" :key="index">
+          <span class="title">{{ item.title }}</span>
+          <van-image
+            :src="item.images[0]"
+            radius="8"
+            fit="cover"
+            height="200"
+            width="100%"
+            @click="onClickItemImage(index)"
+          />
+          <span class="desc">{{ item.desc }}</span>
+        </van-col>
+      </van-row>
     </van-list>
-
-    <van-image-preview v-model="show" :images="images" :start-position="index"></van-image-preview>
+    <van-image-preview v-model="show" :images="images" :start-position="index" />
   </div>
 </template>
 
@@ -66,18 +68,19 @@ export default {
 </script>
 
 <style scoped>
+.card-wrapper {
+  padding-left: 16px;
+  padding-right: 16px;
+}
 .card {
   box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 4px;
   display: inline-block;
   vertical-align: top;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 20px;
+  margin-top: 16px;
+  padding: 20px;
 }
-.card img {
-  width: 100%;
-}
+
 .title {
   font-size: 14px;
   display: -webkit-box;

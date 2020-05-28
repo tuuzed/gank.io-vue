@@ -2,10 +2,16 @@
   <div class="banner">
     <van-swipe :autoplay="3000" indicator-color="white" :height="160">
       <van-swipe-item v-for="(image,index) in bannerImages" :key="index">
-        <van-image fit="cover" :src="image" height="160" @click="onClickBannerItem(index)" />
+        <van-image
+          fit="cover"
+          :src="image"
+          height="160"
+          width="100%"
+          @click="onClickBannerItem(index)"
+        />
       </van-swipe-item>
     </van-swipe>
-    <van-image-preview v-model="show" :images="bannerImages" :start-position="index"></van-image-preview>
+    <van-image-preview v-model="show" :images="bannerImages" :start-position="index" />
   </div>
 </template>
 
@@ -39,6 +45,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-</style>

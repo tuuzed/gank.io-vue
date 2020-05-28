@@ -7,9 +7,10 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'layout',
+    alias: '/home',
+    name: 'home',
     component: Layout,
-    redirect: () => "girl",
+    redirect: () => "/home/girl",
     children: [
       {
         path: "article",
