@@ -34,7 +34,7 @@ export default {
     }
   },
   created() {
-    switch (this.$router.currentRoute.path) {
+    switch (this.$router.currentRoute.name) {
       case "ganhuo":
         this.tabbarIndex = 1;
         break;
