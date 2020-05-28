@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     itemClick(item) {
-      window.open(item.url, "_blank");
+      window.open(`https://gank.io/post/${item._id}`, "_blank");
     },
     onLoad() {
       fetchList(this.category, this.type, this.page, this.count)

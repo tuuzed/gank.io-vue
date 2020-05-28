@@ -1,4 +1,4 @@
-# gank.io
+# gank.io-vue
 
 ## Project setup
 ```
