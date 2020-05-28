@@ -7,23 +7,23 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'Layout',
+    name: 'layout',
     component: Layout,
     redirect: () => "girl",
     children: [
       {
         path: "article",
-        name: "Article",
+        name: "article",
         component: () => import("../views/Article.vue")
       },
       {
         path: "ganhuo",
-        name: "GanHuo",
+        name: "ganhuo",
         component: () => import("../views/GanHuo.vue")
       },
       {
         path: "girl",
-        name: "Girl",
+        name: "girl",
         component: () => import("../views/Girl.vue")
       }
     ]
@@ -31,7 +31,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: 'hash',
   base: process.env.BASE_URL,
   routes
 })

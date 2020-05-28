@@ -73,7 +73,7 @@ export default {
   vertical-align: top;
   margin-left: 10px;
   margin-right: 10px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 .card img {
   width: 100%;

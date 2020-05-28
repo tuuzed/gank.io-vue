@@ -1,10 +1,8 @@
 <template>
-  <transition name="fade">
-    <div class="girl">
-      <Banner />
-      <GirlList />
-    </div>
-  </transition>
+  <div class="girl">
+    <Banner />
+    <GirlList />
+  </div>
 </template>
 
 <script>
@@ -16,5 +14,5 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 </style>

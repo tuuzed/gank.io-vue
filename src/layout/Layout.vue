@@ -34,7 +34,14 @@ export default {
     }
   },
   created() {
-    this.tabbarChange(this.tabbarIndex);
+    switch (this.$router.currentRoute.path) {
+      case "ganhuo":
+        this.tabbarIndex = 1;
+        break;
+      case "article":
+        this.tabbarIndex = 2;
+        break;
+    }
   }
 };
 </script>
