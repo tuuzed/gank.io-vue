@@ -1,7 +1,7 @@
 <template>
   <div class="banner">
     <van-swipe :autoplay="3000" indicator-color="white" :height="160">
-      <van-swipe-item v-for="(image,index) in bannerImages" :key="index">
+      <van-swipe-item v-for="(image,index) in images" :key="index">
         <van-image
           fit="cover"
           :src="image"
@@ -11,12 +11,13 @@
         />
       </van-swipe-item>
     </van-swipe>
-    <van-image-preview v-model="show" :images="bannerImages" :start-position="index" />
+    <van-image-preview v-model="show" :images="images" :start-position="index" />
   </div>
 </template>
 
 <script>
 import { banners } from "../api/Banner";
+import { mapState } from "vuex";
 
 export default {
   name: "Banner",
@@ -33,14 +34,12 @@ export default {
       this.show = true;
     }
   },
-  computed: {
-    bannerImages() {
-      return this.banners.map(it => it.image);
-    }
-  },
+  computed: mapState({
+    images: state => state.banners.map(it => it.image)
+  }),
   created() {
     banners()
-      .then(res => (this.banners = res.data))
+      .then(res => this.$store.commit("updateBanners", res.data))
       .catch(error => console.log("ERROR", error));
   }
 };
