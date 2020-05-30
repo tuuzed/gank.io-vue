@@ -31,9 +31,7 @@ export default {
     };
   },
   methods: {
-    ...mapMutations("article", {
-      updateTabIndex: "updateTabIndex"
-    }),
+    ...mapMutations("article", ["updateTabIndex"]),
     onTabChange() {
       this.updateTabIndex(this.tabIndex);
     }

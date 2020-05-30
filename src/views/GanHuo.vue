@@ -27,9 +27,7 @@ export default {
     };
   },
   methods: {
-    ...mapMutations("ganhuo", {
-      updateTabIndex: "updateTabIndex"
-    }),
+    ...mapMutations("ganhuo", ["updateTabIndex"]),
     onTabChange() {
       this.updateTabIndex(this.tabIndex);
     }
