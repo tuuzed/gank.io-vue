@@ -11,6 +11,7 @@
 
 <script>
 import CategoryList from "../components/CategoryList";
+
 export default {
   name: "GanHuo",
   components: { CategoryList },
@@ -26,6 +27,3 @@ export default {
   }
 };
 </script>
-
-<style>
-</style>

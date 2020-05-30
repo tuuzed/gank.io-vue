@@ -27,7 +27,7 @@ request.interceptors.response.use(
         }
     },
     error => {
-        console.log('err' + error)
+        console.log('Error', error)
         Toast(error)
         return Promise.reject(error)
     }

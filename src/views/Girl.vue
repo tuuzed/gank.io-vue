@@ -13,6 +13,3 @@ export default {
   components: { Banner, GirlList }
 };
 </script>
-
-<style scoped>
-</style>
